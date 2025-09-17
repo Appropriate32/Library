@@ -1,0 +1,15 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.books {
+    border: 2px solid black;
+}
+
+.book {
+    border: 1px solid aqua;
+}
+
