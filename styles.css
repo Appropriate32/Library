@@ -2,14 +2,133 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background-color: antiquewhite;
+    background-color: #fdf6e3;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
 }
 
-.books {
-    border: 2px solid black;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    padding: 40px 20px 20px 20px;
 }
 
 .book {
-    border: 1px solid aqua;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+    padding: 24px 20px 16px 20px;
+    min-width: 220px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
 }
 
+.book:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.book h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: #2d3748;
+}
+
+.book h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: #4a5568;
+    font-weight: 400;
+}
+
+.book p {
+    margin: 0 0 16px 0;
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+.remove-book {
+    align-self: flex-end;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.remove-book:hover {
+    background: #e53e3e;
+}
+
+.add-book {
+    display: block;
+    margin: 30px auto 0 auto;
+    background: #3182ce;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.add-book:hover {
+    background: #2563eb;
+    box-shadow: 0 4px 16px rgba(49,130,206,0.15);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none; /* hidden by defualt */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.read {
+    align-self: flex-end;
+    background: #38a169; /* green for 'yes' by default */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: 8px;
+    margin-left: auto;
+    transition: background 0.2s;
+}
+
+.read.no {
+    background: #a0aec0; /* gray for 'no' */
+}
+
+.read:hover {
+    filter: brightness(0.95);
+}
