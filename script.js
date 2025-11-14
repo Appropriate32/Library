@@ -1,18 +1,19 @@
 const myLibrary = [];
 
-function Book(title, author, genre, id, read) {
-    this.title = title;
-    this.author = author;
-    this.genre = genre;
-    this.id = id;
-    this.read = read;
+class Book {
+    constructor(title, author, genre, id, read) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.id = id;
+        this.read = read;
+    }
+    
 }
 
 function addBookToLibrary(title, author, genre) {
-    let id = crypto.randomUUID();
-    const item = new Book(title, author, genre, id);
-    myLibrary.push(item);
-
+  const item = new Book(title, author, genre); // id and read defaulted in Book
+  myLibrary.push(item);
 }
 
 function displayBooks() {
