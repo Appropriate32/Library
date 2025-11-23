@@ -12,8 +12,9 @@ class Book {
 }
 
 function addBookToLibrary(title, author, genre) {
-  const item = new Book(title, author, genre); // id and read defaulted in Book
-  myLibrary.push(item);
+    let id = crypto.randomUUID();
+    const item = new Book(title, author, genre, id); // id and read defaulted in Book
+    myLibrary.push(item);
 }
 
 function displayBooks() {
