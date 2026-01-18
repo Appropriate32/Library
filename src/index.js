@@ -18,6 +18,15 @@ function addBookToLibrary(title, author, genre) {
   myLibrary.push(item);
 }
 
+function validateForm(inputObj) {
+  if (inputObj.validity.valueMissing) {
+    inputObj.setCustomValidity("Please enter a value :(");
+    inputObj.reportValidity();
+  } else {
+    inputObj.setCustomValidity("");
+  }
+}
+
 function displayBooks() {
   const container = document.querySelector(".container");
   container.innerHTML = "";
@@ -69,6 +78,13 @@ const addBook = document.querySelector(".add-book");
 const modalOverlay = document.querySelector(".modal-overlay");
 const closeModal = document.querySelector("#closeModal");
 const bookForm = document.querySelector("#bookForm");
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const genreInput = document.querySelector("#genre");
+
+titleInput.addEventListener("input", () => validateForm(titleInput));
+authorInput.addEventListener("input", () => validateForm(authorInput));
+genreInput.addEventListener("input", () => validateForm(genreInput));
 
 addBook.addEventListener("click", () => {
   modalOverlay.style.display = "flex"; //show modal
@@ -80,6 +96,12 @@ closeModal.addEventListener("click", () => {
 
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (!bookForm.checkValidity()) {
+    bookForm.reportValidity();
+    return;
+  }
+
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
   const genre = document.querySelector("#genre").value;
